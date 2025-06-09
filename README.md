@@ -1,7 +1,7 @@
 # Music Streaming Data Pipeline
 
-[![Unit Tests](https://github.com/yourusername/music-streaming/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/yourusername/music-streaming/actions/workflows/unit-tests.yml)
-[![Integration Tests](https://github.com/yourusername/music-streaming/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/yourusername/music-streaming/actions/workflows/integration-tests.yml)
+[![Unit Tests](https://github.com/keyr-code/music-streaming/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/yourusername/music-streaming/actions/workflows/unit-tests.yml)
+[![Integration Tests](https://github.com/keyr-code/music-streaming/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/yourusername/music-streaming/actions/workflows/integration-tests.yml)
 
 A real-time data pipeline for a music streaming platform built with Kafka, MinIO, and PostgreSQL.
 
@@ -177,7 +177,3 @@ pytest music_streaming/tests/unit/test_data_generator.py
 ## License
 
 MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
