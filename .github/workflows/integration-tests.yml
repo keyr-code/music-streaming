@@ -1,0 +1,47 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Using Ubuntu for Docker integration
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -e .
+        
+    - name: Start services with Docker Compose
+      run: |
+        cd music_streaming/docker
+        docker-compose up -d
+        
+    - name: Wait for services to be ready
+      run: sleep 30
+        
+    - name: Initialize infrastructure
+      run: |
+        python -m music_streaming.setup.init_minio
+        python -m music_streaming.setup.init_postgres
+        
+    - name: Run integration tests
+      run: |
+        python -m pytest music_streaming/tests/integration/
+        
+    - name: Stop services
+      run: |
+        cd music_streaming/docker
+        docker-compose down
