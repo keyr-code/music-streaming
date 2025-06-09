@@ -27,7 +27,7 @@ jobs:
     - name: Start services with Docker Compose
       run: |
         cd music_streaming/docker
-        docker-compose up -d
+        docker compose up -d
         
     - name: Wait for services to be ready
       run: sleep 30
@@ -44,4 +44,4 @@ jobs:
     - name: Stop services
       run: |
         cd music_streaming/docker
-        docker-compose down
+        docker compose down
